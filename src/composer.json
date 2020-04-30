@@ -1,0 +1,38 @@
+{
+  "name": "ddaproduction/evocms-params",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alexander Pashkevich",
+      "email": "sertious2008.wortk3@gmail.com"
+    },
+    {
+      "name": "Dmytro Litovskyi",
+      "email": "dedli888@gmail.com"
+    }
+  ],
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "EvolutionCMS\\Ddafilters\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "EvolutionCMS\\Ddafilters\\DdafiltersServiceProvider"
+      ]
+    },
+    "files": [
+      {
+        "source": "assets/",
+        "destination": "modules/"
+      },
+      {
+        "source": "assets/tvs",
+        "destination": "tvs/"
+      }
+    ]
+  }
+}
