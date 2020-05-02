@@ -6,6 +6,7 @@ namespace EvolutionCMS\Ddafilters\Controllers;
 use EvolutionCMS\Ddafilters\Models\FilterCategory;
 use EvolutionCMS\Ddafilters\Models\FilterParams;
 use EvolutionCMS\Ddafilters\Models\FilterParamValues;
+use EvolutionCMS\Models\SiteContent;
 
 class FilterParamValuesController
 {
@@ -68,14 +69,17 @@ class FilterParamValuesController
         if ($request['param_id'] == '') {
             return 'Поле param_id обязательно к заполнению';
         }
-
+        if (!is_null(SiteContent::where('alias', $request['alias'])->first())) {
+            return 'Этот alias уже занят';
+        }
         if (isset($request['id'])) {
-            if (!is_null(FilterParamValues::where('alias', $request['alias'])->where('param_id', $request['param_id'])->where('id', '!=', $request['id'])->first())) {
+
+            if (!is_null(FilterParamValues::where('alias', $request['alias'])->where('id', '!=', $request['id'])->first())) {
                 return 'Этот alias уже занят';
             }
 
         } else {
-            if (!is_null(FilterParamValues::where('alias', $request['alias'])->where('param_id', $request['param_id'])->first())) {
+            if (!is_null(FilterParamValues::where('alias', $request['alias'])->first())) {
                 return 'Этот alias уже занят';
             }
         }

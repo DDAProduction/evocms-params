@@ -21,6 +21,6 @@ class DdafiltersServiceProvider extends ServiceProvider
         foreach (glob(dirname(__DIR__) . '/plugins/*.php') as $file) {
             include $file;
         }
-        $this->app->registerModule('DDAFilters', dirname(__DIR__).'/modules/module.php');
+        $this->app->registerModule('Params', dirname(__DIR__).'/modules/module.php');
     }
 }
