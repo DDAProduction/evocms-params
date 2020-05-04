@@ -123,6 +123,7 @@ class FilterParamsController
                 unlink(MODX_BASE_PATH . 'assets/tvs/ddaparams/lib/' . $oldName . '.controller.class.php');
             }
         }
+        $tvsCategory = (int)SystemSetting::find('tvs_category')->setting_value;
         if ($filterParam->tv_id > 0) {
             $tv = SiteTmplvar::find($filterParam->tv_id);
             if ($request['typeinput'] == 'select') {
@@ -130,12 +131,13 @@ class FilterParamsController
             }else {
                 $tv->type = 'text';
             }
+            $tv->category = $tvsCategory;
             $tv->save();
         } else {
             if ($request['typeinput'] == 'select') {
-                $tv = SiteTmplvar::create(['type' => 'custom_tv:ddaparams', 'name' => $filterParam->alias, 'caption' => $filterParam->desc]);
+                $tv = SiteTmplvar::create(['type' => 'custom_tv:ddaparams', 'name' => $filterParam->alias, 'caption' => $filterParam->desc, 'category'=>$tvsCategory]);
             } else {
-                $tv = SiteTmplvar::create(['type' => 'text', 'name' => $filterParam->alias, 'caption' => $filterParam->desc]);
+                $tv = SiteTmplvar::create(['type' => 'text', 'name' => $filterParam->alias, 'caption' => $filterParam->desc, 'category'=>$tvsCategory]);
             }
         }
         $filterParam->tv_id = $tv->id;
