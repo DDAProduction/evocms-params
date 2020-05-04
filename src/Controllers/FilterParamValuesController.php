@@ -16,6 +16,9 @@ class FilterParamValuesController
             HelperController::response([],'error','Параметр param_id обязателен');
         }
         $request['param_id'] = $_GET['param_id'];
+        if(isset($_GET['param_id'])){
+            $request['tv_id'] = FilterParams::find($_GET['param_id'])->tv_id;
+        }
         if(!isset($request['webix_operation'])) $request['webix_operation'] = 'default';
         switch ($request['webix_operation']) {
             case 'insert':
