@@ -18,9 +18,6 @@ class DdafiltersServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        foreach (glob(dirname(__DIR__) . '/plugins/*.php') as $file) {
-            include $file;
-        }
         $this->app->registerModule('Params', dirname(__DIR__).'/modules/module.php');
     }
 }
