@@ -1,5 +1,4 @@
 <?php
-header("Access-Control-Allow-Origin: *");
 
 use EvolutionCMS\Ddafilters\Controllers\HelperController;
 use EvolutionCMS\Ddafilters\Controllers\FilterCategoryController;

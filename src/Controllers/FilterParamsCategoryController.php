@@ -38,7 +38,6 @@ class FilterParamsCategoryController
         $valid = self::validateParamValues($request);
         if ($valid === true) {
             unset($request['id']);
-
             HelperController::response(['id' => FilterParamsCategory::create($request)->getKey()]);
         } else {
             HelperController::answerParamValues($valid);
@@ -57,7 +56,10 @@ class FilterParamsCategoryController
 
     public static function deleteParamValues($request)
     {
-        FilterParamsCategory::find($request['id'])->delete();
+        $param = FilterParamsCategory::find($request['id']);
+        $modx = EvolutionCMS();
+        $modx->invokeEvent('onInsertParamToCategory',['category_id'=>$param->category_id]);
+        $param->delete();
         return true;
     }
 
@@ -78,6 +80,8 @@ class FilterParamsCategoryController
                 return 'Этот param_id уже есть в категории';
             }
         }
+        $modx = EvolutionCMS();
+        $modx->invokeEvent('onInsertParamToCategory',['category_id'=>$request['category_id']]);
         return true;
     }
 
