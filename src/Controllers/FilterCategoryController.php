@@ -32,6 +32,7 @@ class FilterCategoryController
     {
         $valid = self::validateCategory($request);
         if ($valid === true) {
+            $requestId = $request['id'];
             unset($request['id']);
             HelperController::response( ['id' => FilterCategory::create($request)->getKey()]);
         }else {

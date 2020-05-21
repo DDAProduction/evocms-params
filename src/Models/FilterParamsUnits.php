@@ -18,20 +18,15 @@ use Illuminate\Database\Eloquent;
  *
  * @mixin \Eloquent
  */
-class FilterParams extends Eloquent\Model
+class FilterParamsUnits extends Eloquent\Model
 {
-    protected $table = 'filter_params';
+    protected $table = 'filter_params_units';
 
     protected $fillable = [
-        'tv_id',
-        'prefix',
-        'alias',
         'desc',
         'desc_ua',
         'desc_ru',
         'desc_en',
-        'typeinput',
-        'unit_id',
     ];
 }
 

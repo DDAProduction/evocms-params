@@ -6,11 +6,12 @@ use EvolutionCMS\Ddafilters\Controllers\FilterParamsController;
 use EvolutionCMS\Ddafilters\Controllers\FilterParamValuesController;
 use \EvolutionCMS\Ddafilters\Controllers\FilterParamsCategoryController;
 use \EvolutionCMS\Ddafilters\Controllers\FilterSettingsController;
+use \EvolutionCMS\Ddafilters\Controllers\FilterParamsUnitsController;
 
 $filesystem = new Illuminate\Filesystem\Filesystem;
 $dir = EVO_CORE_PATH . 'custom/packages/ddafilters/modules/views';
 if (!is_dir($dir)) {
-    $dir = EVO_CORE_PATH . 'vendor/ddaproduction/evocms-params/modules/views/';
+    $dir = EVO_CORE_PATH . 'vendor/ser1ous/ddafilters/modules/views/';
 }
 $viewFinder = new Illuminate\View\FileViewFinder($filesystem, [$dir]);
 \Illuminate\Support\Facades\View::setFinder($viewFinder);
@@ -32,6 +33,16 @@ switch ($action) {
         break;
     case 'crudParamsCategory':
         FilterParamsCategoryController::crudParams($_POST);
+        break;
+    case 'crudParamsUnits':
+        FilterParamsUnitsController::crudParams($_POST);
+        break;
+    case 'getAllUnits':
+        FilterParamsUnitsController::getAllUnits();
+        break;
+		
+    case 'getAllUnitsClear':
+        FilterParamsUnitsController::getAllUnitsClear();
         break;
     case 'getAvailableParamsForCategory':
         FilterParamsCategoryController::getAvailableParamsForCategory($_POST);

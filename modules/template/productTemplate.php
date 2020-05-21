@@ -20,7 +20,7 @@ if (count($parents) > 0) {
         ->whereIn('contentid', $parents)
         ->orderBy(DB::raw('FIELD(contentid,' . $parentString . ')'))->first();
 
-    $globalParams = $evo->getConfig('dda_params_global_product_params');
+    $globalParams = $evo->getConfig('dda_filter_global_product_params');
     if (is_array($globalParams)) {
         foreach ($globalParams as $key => $globalParam) {
             $paramsTemplateEditor[$key] = $globalParam;
@@ -119,11 +119,11 @@ $tabs = [
     ]
 ];
 $customTabs = [];
-$customTabs = $evo->getConfig('dda_params_custom_tabs');
+$customTabs = $evo->getConfig('dda_filter_custom_tabs');
 if (is_array($customTabs))
     $tabs = array_merge($tabs, $customTabs);
 
-$customTabs = $evo->getConfig('dda_params_tabs_sort');
+$customTabs = $evo->getConfig('dda_filter_tabs_sort');
 if (is_array($customTabs)) {
     $new_tabs = [];
     foreach ($customTabs as $key => $customTab) {
