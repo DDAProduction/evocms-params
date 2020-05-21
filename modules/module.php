@@ -11,7 +11,7 @@ use \EvolutionCMS\Ddafilters\Controllers\FilterParamsUnitsController;
 $filesystem = new Illuminate\Filesystem\Filesystem;
 $dir = EVO_CORE_PATH . 'custom/packages/ddafilters/modules/views';
 if (!is_dir($dir)) {
-    $dir = EVO_CORE_PATH . 'vendor/ser1ous/ddafilters/modules/views/';
+    $dir = EVO_CORE_PATH . 'vendor/ddaproduction/evocms-params/modules/views/';
 }
 $viewFinder = new Illuminate\View\FileViewFinder($filesystem, [$dir]);
 \Illuminate\Support\Facades\View::setFinder($viewFinder);
