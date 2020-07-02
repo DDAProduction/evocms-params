@@ -131,6 +131,7 @@ class FilterParamsController
             }else {
                 $tv->type = 'text';
             }
+            $tv->caption = $request['desc'];
             $tv->category = $tvsCategory;
             $tv->save();
         } else {
