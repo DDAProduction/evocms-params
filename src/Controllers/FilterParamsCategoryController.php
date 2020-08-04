@@ -48,6 +48,7 @@ class FilterParamsCategoryController
     {
         $valid = self::validateParamValues($request);
         if ($valid === true) {
+            $request['order'] = (int)$request['order'];
             FilterParamsCategory::find($request['id'])->update($request);
         }
 
