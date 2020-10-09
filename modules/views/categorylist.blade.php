@@ -1,7 +1,7 @@
-<script type="text/javascript" src="//cdn.webix.com/edge/webix.js"></script>
+<script type="text/javascript" src="//cdn.webix.com/7.4/webix.js"></script>
 <!--		<link rel="stylesheet" type="text/css" href="//cdn.webix.com/edge/webix.css">-->
 <!--		<link rel="stylesheet" title="compact" type="text/css" href="//cdn.webix.com/edge/skins/mini.css">-->
-<link rel="stylesheet" title="compact" type="text/css" href="//cdn.webix.com/edge/skins/flat.css">
+<link rel="stylesheet" title="compact" type="text/css" href="//cdn.webix.com/7.4/skins/flat.css">
 <!--	<link rel="stylesheet" title="compact" type="text/css" href="//cdn.webix.com/edge/skins/compact.css">-->
 <!--		<link rel="stylesheet" title="compact" type="text/css" href="//cdn.webix.com/edge/skins/contrast.css">-->
 <!-- App -->
