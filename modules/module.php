@@ -20,8 +20,8 @@ $action = '';
 if (isset($_GET['action']))
     $action = $_GET['action'];
 
-
 switch ($action) {
+
     case 'crudCategories':
         FilterCategoryController::crudCategory($_POST);
         break;

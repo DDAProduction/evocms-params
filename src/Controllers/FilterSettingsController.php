@@ -52,7 +52,7 @@ class FilterSettingsController
             SiteTmplvarTemplate::whereIn('tmplvarid', $tvs)->delete();
             foreach ($products as $product) {
                 if (is_numeric($product)) {
-                    $productTemplate = EVO_CORE_PATH . 'custom/config/cms/settings/dda_params_products_template.php';
+                    $productTemplate = EVO_CORE_PATH . 'custom/config/cms/settings/dda_params_products_template._php';
                     if (!file_exists($productTemplate)) {
                         $productTemplate = EVO_CORE_PATH . 'custom/packages/ddafilters/modules/template/productTemplate.php';
                     }

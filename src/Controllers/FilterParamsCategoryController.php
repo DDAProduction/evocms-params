@@ -46,9 +46,14 @@ class FilterParamsCategoryController
 
     public static function updateParamValues($request)
     {
+
         $valid = self::validateParamValues($request);
         if ($valid === true) {
             $request['order'] = (int)$request['order'];
+            $request['show_in_category'] = $request['show_in_category']==''?0:$request['show_in_category'];
+            $request['show_in_filter'] = $request['show_in_filter']==''?0:$request['show_in_filter'];
+//            var_dump($request);
+//            die();
             FilterParamsCategory::find($request['id'])->update($request);
         }
 

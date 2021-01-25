@@ -31,11 +31,12 @@ if (count($parents) > 0) {
     } else {
         $default = false;
         $params = \EvolutionCMS\Ddafilters\Models\FilterParamsCategory::where('category_id', $result->value)->orderBy('order')->pluck('param_id');
+        if (count($params) > 0) {
+            $paramsOutput = \EvolutionCMS\Ddafilters\Models\FilterParams::whereIn('id', $params)->get();
+            foreach ($paramsOutput as $item) {
+                $paramsTemplateEditor[$item->alias] = [];
 
-        $paramsOutput = \EvolutionCMS\Ddafilters\Models\FilterParams::whereIn('id', $params)->get();
-        foreach ($paramsOutput as $item) {
-            $paramsTemplateEditor[$item->alias] = [];
-
+            }
         }
     }
 }else {

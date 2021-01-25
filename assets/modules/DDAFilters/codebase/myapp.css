@@ -16,4 +16,7 @@
 .webix_table_checkbox {
   margin-top: 10px;
 }
+.multiline {
+  line-height: 30px !important;
+}
 
